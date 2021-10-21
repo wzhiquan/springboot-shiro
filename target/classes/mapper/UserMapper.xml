@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 该文件存放CRUD的sql语句 -->
+<mapper namespace="com.test.mapper.UserMapper">
+
+    <select id="findByName" parameterType="string" resultType="com.test.domain.User">
+        SELECT ID,
+               NAME,
+               PASSWORD
+        FROM USER
+        where NAME = #{value}
+    </select>
+
+    <select id="findById" parameterType="int" resultType="com.test.domain.User">
+        SELECT ID,
+               NAME,
+               PASSWORD,
+               PERMS
+        FROM USER
+        where ID = #{value}
+    </select>
+</mapper>
